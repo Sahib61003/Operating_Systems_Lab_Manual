@@ -18,17 +18,17 @@ void findavgTime(int processes[], int n, int bt[]) {
     findWaitingTime(processes, n, bt, wt);
     findTurnAroundTime(processes, n, bt, wt, tat);
 
-    printf("--------------------------------------------------------\n");
+    printf("_________________________________________________________\n\n");
     printf("| Process | Burst Time | Waiting Time | Turnaround Time |\n");
-    printf("--------------------------------------------------------\n");
+    printf("_________________________________________________________\n\n");
 
     for (int i = 0; i < n; i++) {
         total_wt += wt[i];
         total_tat += tat[i];
-        printf("|    %2d   |     %3d     |      %3d     |        %3d       |\n", processes[i], bt[i], wt[i], tat[i]);
+        printf("|    %2d   |     %3d     |      %3d     |        %3d     |\n", processes[i], bt[i], wt[i], tat[i]);
     }
 
-    printf("--------------------------------------------------------\n");
+    printf("_________________________________________________________\n");
 
     float s = (float)total_wt / (float)n;
     float t = (float)total_tat / (float)n;
@@ -39,7 +39,8 @@ void findavgTime(int processes[], int n, int bt[]) {
 int main() {
     int processes[] = {1, 2, 3, 4, 5, 6};
     int n = sizeof processes / sizeof processes[0];
-    int burst_time[] = {10, 5, 8, 6, 9, 12};
+    int burst_time[] = {7, 3, 10, 9, 6, 12};
     findavgTime(processes, n, burst_time);
+    printf("Sahib Preet Singh AI-ML OO713211621");
     return 0;
 }
