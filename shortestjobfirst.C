@@ -41,7 +41,7 @@ void sjfScheduling(struct Process processes[], int n) {
     printf("-------------------------------------------------------------------------\n");
 
     for (int i = 0; i < n; i++) {
-        int min_burst = -1;
+        int min_burst = -1;   
         int selected_process = -1;
         for (int j = 0; j < n; j++) {
             if (completed[j] == 0 && processes[j].arrival_time <= total_time) {

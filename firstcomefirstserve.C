@@ -21,7 +21,7 @@ void findavgTime(int processes[], int n, int bt[]) {
     printf("_________________________________________________________\n\n");
     printf("| Process | Burst Time | Waiting Time | Turnaround Time |\n");
     printf("_________________________________________________________\n\n");
-
+    
     for (int i = 0; i < n; i++) {
         total_wt += wt[i];
         total_tat += tat[i];
@@ -44,3 +44,5 @@ int main() {
     printf("Sahib Preet Singh AI-ML OO713211621");
     return 0;
 }
+
+ 
