@@ -2,7 +2,6 @@
 
 void main()
 {
-    printf("Memory Management ")
     int bsize[10], psize[10], bno, pno, flags[10], allocation[10], i, j;
 
     for (i = 0; i < 10; i++)
