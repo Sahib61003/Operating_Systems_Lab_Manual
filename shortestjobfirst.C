@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 
 // Structure to represent a process
@@ -40,8 +41,11 @@ void sjfScheduling(struct Process processes[], int n) {
     printf("| Process | Arrival Time | Burst Time | Waiting Time | Turnaround Time   |\n");
     printf("-------------------------------------------------------------------------\n");
 
+    int sequence[n]; // Array to store the sequence of processes
+    int seq_index = 0; // Index to track the position in the sequence array
+
     for (int i = 0; i < n; i++) {
-        int min_burst = -1;   
+        int min_burst = -1;
         int selected_process = -1;
         for (int j = 0; j < n; j++) {
             if (completed[j] == 0 && processes[j].arrival_time <= total_time) {
@@ -64,14 +68,20 @@ void sjfScheduling(struct Process processes[], int n) {
             total_burst_time += processes[selected_process].burst_time;
             total_turnaround_time += turnaround_time;
 
+            // Print process details
             printf("|    %2d   |      %2d      |     %3d    |      %3d      |        %3d       |\n",
                    processes[selected_process].process_id,
                    processes[selected_process].arrival_time,
                    processes[selected_process].burst_time,
                    waiting_time, turnaround_time);
+
+            // Store the process in the sequence array
+            sequence[seq_index++] = processes[selected_process].process_id;
+
             total_time += processes[selected_process].burst_time;
         }
     }
+
     printf("-------------------------------------------------------------------------\n");
 
     float avg_waiting_time = total_waiting_time / n;
@@ -82,9 +92,13 @@ void sjfScheduling(struct Process processes[], int n) {
     printf("Average Burst Time = %.2f\n", avg_burst_time);
     printf("Average Turnaround Time = %.2f\n", avg_turnaround_time);
 
-    
+    // Print the sequence of processes
+    printf("Sequence of processes: ");
+    for (int i = 0; i < n; i++) {
+        printf("P%d ", sequence[i]);
+    }
+    printf("\n");
 }
-
 int main() {
     int n;
     printf("Enter the number of processes: ");
